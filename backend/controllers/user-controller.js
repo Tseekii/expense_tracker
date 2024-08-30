@@ -5,7 +5,15 @@ const getAllUser = async (req, res) => {
   console.log("DATA", data);
   res.status(200).json({ message: "success", user: data });
 };
-const createUser = () => {};
+const createUser = async (req, res) => {
+  const { email, name, password, profile_img } = req.body;
+  const createUser =
+    await sql`INSERT INTO users(email, name, password, profile_img) 
+  VALUES(${email}, ${name},${password},${profile_img});`;
+  console.log("post ajillah:", createUser);
+  res.status(201).json({ message: "post amjilttai", user: createUser });
+};
+
 const updateUser = () => {};
 const deleteUser = async (req, res) => {
   const { id } = req.params;
