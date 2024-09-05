@@ -6,6 +6,7 @@ const cors = require("cors");
 const { logger } = require("./middlewares/logger");
 dotenv.config();
 
+const authRoutes = require("./routes/auth-route");
 const userRoutes = require("./routes/user-route");
 const categoryRoutes = require("./routes/category-route");
 
@@ -15,10 +16,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-s;
 app.use(logger());
 
 app.use("/users", userRoutes);
+app.use("/auth", authRoutes);
 app.use("/categories", categoryRoutes);
 
 app.listen(PORT, () => {
