@@ -6,12 +6,11 @@ const {
   updateUser,
   getCurrentUser,
 } = require("../controllers/user-controller");
-
 const { auth } = require("../middlewares/auth");
 const router = Router();
 // zam, method, user get, user uusgedeg
 router.route("/profile").get(auth, getCurrentUser);
-router.route("/").get(getAllUser).post(createUser);
-router.route("/:id").put(updateUser).delete(deleteUser);
+router.route("/").get(auth, getAllUser).post(createUser);
+router.route("/:id").put(updateUser).delete(auth, deleteUser);
 
 module.exports = router;

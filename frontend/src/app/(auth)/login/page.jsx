@@ -26,6 +26,10 @@ const Login = () => {
       });
 
       if (response.status === 200) {
+        const { token } = response.data;
+        console.log("token", token);
+        // website iin data san
+        localStorage.setItem("token", token);
         router.push("/dashboard");
       }
     } catch (error) {

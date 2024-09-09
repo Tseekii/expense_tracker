@@ -3,8 +3,9 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/user-context";
 import axios from "axios";
-import { apiUrl } from "../../utils/util";
+import { apiUrl } from "../utils/util";
 import { toast } from "react-toastify";
+import { Card } from "../components/cards";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -29,7 +30,8 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        <h2>Records</h2>
+        <h2>Card</h2>
+        <Card></Card>
         {transactionData?.transactions?.map((transaction, index) => {
           return (
             <div key={index} className="flex">
