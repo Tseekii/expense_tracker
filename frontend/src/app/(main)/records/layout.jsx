@@ -1,9 +1,9 @@
 "use client";
 
 import { useContext, useEffect } from "react";
+import { Header } from "../components";
 import { UserContext } from "../context/user-context";
 import { useRouter } from "next/navigation";
-import { Header } from "../components";
 
 const Layout = ({ children }) => {
   const { user, fetchUserData } = useContext(UserContext);
@@ -17,11 +17,10 @@ const Layout = ({ children }) => {
     localStorage.removeItem("token");
     router.push("/login");
   };
-
   return (
     <div>
       <Header user={user} logOut={logOut} />
-      {children}
+      <main className="bg-[#F3F4F6] h-screen">{children}</main>
     </div>
   );
 };
