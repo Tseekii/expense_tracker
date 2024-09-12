@@ -43,7 +43,7 @@ const Dashboard = () => {
       console.log("ST", res.data);
       setCardInfo(res.data);
     } catch (error) {
-      console.error(error);
+      console.error("INFOCARDERR", error);
       toast.error("Failed to fetch transactions");
     }
   };
